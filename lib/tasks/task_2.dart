@@ -11,10 +11,10 @@ class _Task_2_PageState extends State<Task_2_Page> {
   int con = 0;
   String text1 = "";
   String text2 = "";
-  int k=0;
+  int k = 0;
 
-  List primeNumbers=[2];
-  int x=3;
+  List primeNumbers = [2];
+  int num = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,9 @@ class _Task_2_PageState extends State<Task_2_Page> {
             children: [
               Padding(
                 padding:
-                const EdgeInsets.symmetric(vertical: 28.0, horizontal: 50),
+                    const EdgeInsets.symmetric(vertical: 28.0, horizontal: 50),
                 child: TextFormField(
+                  keyboardType: TextInputType.number,
                   controller: _textEditingController,
                   decoration: InputDecoration(
                     counterStyle: TextStyle(color: Colors.blue),
@@ -44,11 +45,11 @@ class _Task_2_PageState extends State<Task_2_Page> {
                         color: Colors.blue, fontWeight: FontWeight.bold),
                     enabledBorder: const OutlineInputBorder(
                       borderSide:
-                      const BorderSide(color: Colors.blue, width: 1),
+                          const BorderSide(color: Colors.blue, width: 1),
                     ),
                     focusedBorder: const OutlineInputBorder(
                       borderSide:
-                      const BorderSide(color: Colors.blue, width: 1),
+                          const BorderSide(color: Colors.blue, width: 1),
                     ),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue)),
@@ -57,39 +58,11 @@ class _Task_2_PageState extends State<Task_2_Page> {
               ),
               RaisedButton(
                 onPressed: () {
-                  print("${_textEditingController.text}");
-
-                  setState(() {
-                    text1 = '';
-                    k=0;
-                    text2='';
-                  });
+                  cleaner();
 
                   int n = int.parse(_textEditingController.text);
 
-                  if (n < 2) {
-                    setState(() {
-                      text1 = "en kicik -dir";
-                    });
-                  }
-
-                  for (int i = 2; i <= n; i++) {
-                    for (int j = 2; j < i; j++) {
-                      if (i % j == 0) {
-                        con = 1;
-                      }
-                    }
-
-                    if (con == 0) {  k++;
-                      setState(() {
-                        text1 = text1 + '\n $i';
-                        text2 = text2 + '\n $k'+"-->";
-                      });
-                      print("k: "+k.toString());
-                    } else {
-                      con = 0;
-                    }
-                  }
+                  untillNprime(n);
                 },
                 child: Text("Find the prime numbers untill N"),
               ),
@@ -97,41 +70,11 @@ class _Task_2_PageState extends State<Task_2_Page> {
                 onPressed: () {
                   print("${_textEditingController.text}");
 
-                  setState(() {
-                    text1 = '';
-                    k=0;
-                    text2='';
-                    primeNumbers.clear();
-                  });
+                  cleaner();
 
-                  int n = int.parse(_textEditingController.text);
+                  NthPrime();
 
-                  if (n < 2) {
-                    setState(() {
-                      text1 = "en kicik -dir";
-                    });
-                  }
-
-                  for (int c = 2; c <= n; x++) {
-                    for (int j = 2; j < x; j++) {
-                      if (x % j == 0) {
-                        break;
-                      }
-                    }
-
-                    if (con == x) {
-                      c++;
-
-                    primeNumbers.add(x);
-
-                    setState(() {
-                    //  text1 = text1 + '\n $i';
-                     // text2 = text2 + '\n $k'+"-->";
-                    });
-                    print("c: "+c.toString());
-                    } 
-                  }
-                  print("list: "+primeNumbers.toString()) ;
+                  text1 = num.toString();
                 },
                 child: Text("Find the Nth prime number"),
               ),
@@ -140,12 +83,7 @@ class _Task_2_PageState extends State<Task_2_Page> {
               ),
               RaisedButton(
                 onPressed: () {
-                  _textEditingController.clear();
-                  setState(() {
-                    text1 = '';
-                    k=0;
-                    text2='';
-                  });
+                  cleaner();
                 },
                 child: Text("clear"),
               ),
@@ -153,26 +91,92 @@ class _Task_2_PageState extends State<Task_2_Page> {
                 height: 20,
               ),
               Container(
-
-                  decoration:
-                      BoxDecoration(   color: Colors.white,border: Border.all(color: Colors.blue)),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.blue)),
                   height: 200,
                   width: MediaQuery.of(context).size.width / 2,
                   child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Center(
-                        child: Row(children: [Text(
-                          "$text2",
-                          style: TextStyle(color: Colors.green, fontSize: 15),
-                        ),SizedBox(width: 20,),Text(
-                          "$text1",
-                          style: TextStyle(color: Colors.blue, fontSize: 15),
-                        )],),
+                        child: Row(
+                          children: [
+                            Text(
+                              "$text2",
+                              style:
+                                  TextStyle(color: Colors.green, fontSize: 15),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              "$text1",
+                              style:
+                                  TextStyle(color: Colors.blue, fontSize: 15),
+                            )
+                          ],
+                        ),
                       ))),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void cleaner() {
+    setState(() {
+      text1 = '';
+      k = 0;
+      text2 = '';
+      primeNumbers.clear();
+    });
+  }
+
+  void untillNprime(int n) {
+    if (n < 2) {
+      setState(() {
+        text1 = "en kicik -dir";
+      });
+    }
+
+    for (int i = 2; i <= n; i++) {
+      for (int j = 2; j < i; j++) {
+        if (i % j == 0) {
+          con = 1;
+        }
+      }
+
+      if (con == 0) {
+        k++;
+        setState(() {
+          text1 = text1 + '\n $i';
+          text2 = text2 + '\n $k' + "-->";
+        });
+        print("k: " + k.toString());
+      } else {
+        con = 0;
+      }
+    }
+  }
+
+  void NthPrime() {
+    int i;
+    int n = int.parse(_textEditingController.text);
+
+    while (k <= n) {
+      num = num + 1;
+      for (i = 2; i <= num; i++) {
+        //
+        if (num % i == 0) {
+          //prime deyilse
+          break;
+        }
+      }
+      if (i == num) {
+        //primedirse
+        k = k + 1;
+      }
+    }
   }
 }

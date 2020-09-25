@@ -85,13 +85,12 @@ class _Task_3_PageState extends State<Task_3_Page> {
                     ),
                   ),
                 ),
-
-                RaisedButton(    color: Colors.green.shade300,
+                RaisedButton(
+                  color: Colors.green.shade300,
                   onPressed: () {
                     if (formKey.currentState.validate()) {
                       //  int n = 3;
-                       daxilEdilenEded =
-                          int.parse(_textEditingController.text);
+                      daxilEdilenEded = int.parse(_textEditingController.text);
 
                       numbersList = [];
 
@@ -99,18 +98,18 @@ class _Task_3_PageState extends State<Task_3_Page> {
                         matrixA = mat(daxilEdilenEded);
                       });
 
-
                       print("ddfs: " + matrixA.toString());
 
-
-                       matrixOperations();
-
-
+                      matrixOperations();
                     }
                   },
-                  child: Text("Create",style: TextStyle(color: Colors.white),),
+                  child: Text(
+                    "Create",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                RaisedButton(    color: Colors.red,
+                RaisedButton(
+                  color: Colors.red,
                   onPressed: () {
                     if (formKey.currentState.validate()) {
                       setState(() {
@@ -119,7 +118,10 @@ class _Task_3_PageState extends State<Task_3_Page> {
                       });
                     }
                   },
-                  child: Text("Clear",style: TextStyle(color: Colors.white),),
+                  child: Text(
+                    "Clear",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
                 Container(
                     decoration: BoxDecoration(
@@ -148,16 +150,19 @@ class _Task_3_PageState extends State<Task_3_Page> {
                                       int.parse(_textEditingController.text)),
                                 ),
                         ))),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 matrixA == null
                     ? Container()
                     : SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [  SizedBox(
-                            width: 20,
-                          ),
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
                             Text("main : " + mainDiogonal.toString()),
                             SizedBox(
                               width: 25,
@@ -166,30 +171,41 @@ class _Task_3_PageState extends State<Task_3_Page> {
                             SizedBox(
                               width: 25,
                             ),
-                            Text("sum of diogonals: " +
+                            Text("sum of diagonals: " +
                                 (secondDiogonal + mainDiogonal).toString()),
                             SizedBox(
                               width: 20,
                             ),
                           ],
                         ),
-                      ),SizedBox(height: 10,),
+                      ),
+                SizedBox(
+                  height: 10,
+                ),
                 matrixA == null
                     ? Container()
                     : SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [  SizedBox(
-                      width: 20,
-                    ),
-                      Text("multiplication of corners : (${matrixA[0][0]}*${matrixA[0][daxilEdilenEded-1]}**${matrixA[daxilEdilenEded-1][0]}*${matrixA[daxilEdilenEded-1][daxilEdilenEded-1]}) = " + (matrixA[0][daxilEdilenEded-1]*matrixA[daxilEdilenEded-1][daxilEdilenEded-1]*matrixA[daxilEdilenEded-1][0]*matrixA[0][0]).toString()),
-                      SizedBox(
-                        width: 25,
-                      ),
-                    ],
-                  ),
-                )
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                                "multiplication of corners : (${matrixA[0][0]}*${matrixA[0][daxilEdilenEded - 1]}**${matrixA[daxilEdilenEded - 1][0]}*${matrixA[daxilEdilenEded - 1][daxilEdilenEded - 1]}) = " +
+                                    (matrixA[0][daxilEdilenEded - 1] *
+                                            matrixA[daxilEdilenEded - 1]
+                                                [daxilEdilenEded - 1] *
+                                            matrixA[daxilEdilenEded - 1][0] *
+                                            matrixA[0][0])
+                                        .toString()),
+                            SizedBox(
+                              width: 25,
+                            ),
+                          ],
+                        ),
+                      )
               ],
             ),
           ),
@@ -200,34 +216,22 @@ class _Task_3_PageState extends State<Task_3_Page> {
 
   void matrixOperations() {
 
-    mainDiogonal=0; secondDiogonal=0;
-                          for (int i = 0; i < daxilEdilenEded; i++) {
-     for (int j = 0; j < daxilEdilenEded; j++) {
-       if (i == j) {
-         mainDiogonal = mainDiogonal + matrixA[i][j];
-       }
-       if ((i + j) == (daxilEdilenEded - 1)) {
-         secondDiogonal = secondDiogonal + matrixA[i][j];
-       }
-     }
-                          }
-                          print("main: " + mainDiogonal.toString());
-                          print("second: " + secondDiogonal.toString());
-                          print("sum: " + (secondDiogonal+mainDiogonal).toString());
+    mainDiogonal = 0;
+    secondDiogonal = 0;
 
-  }
-
-  Row buildRowListGenereata() {
-    return Row(
-      children: List.generate(3, (index) {
-        return Column(
-          children: List.generate(3, (indexZ) {
-            return Text("5");
-            //Text(mat(3)[index][index].toString()) ;
-          }),
-        );
-      }),
-    );
+    for (int i = 0; i < daxilEdilenEded; i++) {
+      for (int j = 0; j < daxilEdilenEded; j++) {
+        if (i == j) {
+          mainDiogonal = mainDiogonal + matrixA[i][j];
+        }
+        if ((i + j) == (daxilEdilenEded - 1)) {
+          secondDiogonal = secondDiogonal + matrixA[i][j];
+        }
+      }
+    }
+    print("main: " + mainDiogonal.toString());
+    print("second: " + secondDiogonal.toString());
+    print("sum: " + (secondDiogonal + mainDiogonal).toString());
   }
 
   Padding buildRow(n) {
@@ -256,20 +260,9 @@ class _Task_3_PageState extends State<Task_3_Page> {
     );
   }
 
-  void ededDuzelt() {
-    int eded = createRandomNum(5);
-    print(eded);
-    if (numbersList.contains(eded)) {
-      print("tekrar oldu yeniden:");
-      ededDuzelt();
-    } else {
-      numbersList.add(eded);
-    }
-  }
-
   int createRandomNum(n) {
     Random random = new Random();
-    int randomNumber = 1 + random.nextInt(n * n); // from 0 upto 99 included
+    int randomNumber = 1 + random.nextInt(n * n);
     return randomNumber;
   }
 
@@ -290,7 +283,7 @@ class _Task_3_PageState extends State<Task_3_Page> {
     }
 
     print(matrix);
-    print(matrix[size - 1][size - 2]);
+
     return matrix;
   }
 

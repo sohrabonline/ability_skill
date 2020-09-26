@@ -359,17 +359,5 @@ class _Task_1_PageState extends State<Task_1_Page> {
 
 
 
-/* List<List<dynamic>> rows = List<List<dynamic>>();
-  for (int i = 0; i <rootAttendanceList.length;i++) {
-  List<dynamic> row = List();
-  row.add(rootAttendanceList[i].name);
-  row.add(rootAttendanceList[i].company);
-  rows.add(row);
-  }
-  String dir = (await getApplicationDocumentsDirectory()).absolute.path;
-  String  file = "$dir";
-  File f = new File(file+"/myreport.csv");
-  String csv = const ListToCsvConverter().convert(rows);
-  f.writeAsString(csv);
-  print(f.path);*/
+
 }

@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Task_3_Page()));
                 },
-                child: Text("Task 3"),
+                child: Text("Task 3",style: TextStyle(color: Colors.white),),
               )
 ,
 

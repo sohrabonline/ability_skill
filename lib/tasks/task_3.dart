@@ -11,17 +11,7 @@ class Task_3_Page extends StatefulWidget {
 class _Task_3_PageState extends State<Task_3_Page> {
   TextEditingController _textEditingController = new TextEditingController();
 
-  int con = 0;
-  String text1 = "";
-  String text2 = "";
-  String text3 = "";
-  int k = 0;
-
-  List primeNumbers = [2];
-  int num = 1;
-  int sum = 0;
-
-  //List<int> numbersList=new List();
+ 
   List<int> numbersList = [];
   List<List<int>> matrixA;
   int daxilEdilenEded;

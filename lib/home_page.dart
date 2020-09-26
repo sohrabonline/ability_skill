@@ -1,7 +1,6 @@
-import 'package:ability_skill/tasks/task_2x.dart';
+
 import 'package:ability_skill/tasks/task_1.dart';
 import 'package:ability_skill/tasks/task_3.dart';
-import 'package:ability_skill/tasks/task_4.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

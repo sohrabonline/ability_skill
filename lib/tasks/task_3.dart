@@ -193,7 +193,7 @@ class _Task_3_PageState extends State<Task_3_Page> {
                               width: 20,
                             ),
                             Text(
-                                "multiplication of corners : (${matrixA[0][0]}*${matrixA[0][daxilEdilenEded - 1]}**${matrixA[daxilEdilenEded - 1][0]}*${matrixA[daxilEdilenEded - 1][daxilEdilenEded - 1]}) = " +
+                                "multiplication of corners : (${matrixA[0][0]}*${matrixA[0][daxilEdilenEded - 1]}*${matrixA[daxilEdilenEded - 1][0]}*${matrixA[daxilEdilenEded - 1][daxilEdilenEded - 1]}) = " +
                                     (matrixA[0][daxilEdilenEded - 1] *
                                             matrixA[daxilEdilenEded - 1]
                                                 [daxilEdilenEded - 1] *

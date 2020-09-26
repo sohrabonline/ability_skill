@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Text('Stage 2'),
       ),
       body: Center(
         child: Container(
@@ -27,14 +27,16 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Text("Task 1"),
               ),
+/*
               RaisedButton( color: Colors.amber,
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Task_2x_Page()));
                 },
                 child: Text("Task 2"),
-              )
-,
+              )   ,
+*/
+
               RaisedButton( color: Colors.blue,
                 onPressed: () {
                   Navigator.push(context,
@@ -43,13 +45,6 @@ class _HomePageState extends State<HomePage> {
                 child: Text("Task 3"),
               )
 ,
-              RaisedButton( color: Colors.red,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Task_4_Page()));
-                },
-                child: Text("Task 4"),
-              )
 
             ],
           ),
